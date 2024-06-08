@@ -12,9 +12,13 @@ class HighLevelCounting(BaseBaccaratGambler):
         player_coef, player_count = self._count_coef(self.player_hands)
         banker_coef, banker_count = self._count_coef(self.banker_hands)
 
-        if (player_count >= banker_count) & (self.decision == '下閒') or (player_count <= banker_count) & (self.decision == '下莊'):
+        if (player_count > banker_count) & (self.decision == '下閒') or (player_count < banker_count) & (self.decision == '下莊'):
             self.win_times += 1
-            
+        
+        if (player_count == banker_count) and self.play_times > 0:
+            print("和局, 這把不算")
+            self.play_times -= 1
+
         res = 0
         for card in cards:
             res += WEIGHT[card]

@@ -13,10 +13,12 @@ if __name__ == '__main__':
     
         print(f"*** 建議 {baccarat_processor.decision} ***")
         print(f'勝利次數: {baccarat_processor.win_times}')
+        print(f'勝利次數: {baccarat_processor.play_times}')
         print(f'總次數: {baccarat_processor.total_times}')
-        if baccarat_processor.total_times > 0:
-            print(f'Win Rate: {baccarat_processor.win_times / baccarat_processor.total_times * 100}%')
+        if baccarat_processor.play_times > 0:
+            print(f'Win Rate: {round(baccarat_processor.win_times / baccarat_processor.play_times * 100, 2)}%')
         if baccarat_processor.decision != '觀察一把':
-            baccarat_processor.total_times += 1
+            baccarat_processor.play_times += 1
+        baccarat_processor.total_times += 1
         print('===============================================')
 

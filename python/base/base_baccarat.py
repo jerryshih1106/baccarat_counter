@@ -5,6 +5,7 @@ MAP_DICT.update({str(i+1): i+1 for i in range(13)})
 class BaseBaccaratGambler:
     def __init__(self):
         self.win_times = 0
+        self.play_times = 0
         self.total_times = 0
         self.decision = "第一把"
         
