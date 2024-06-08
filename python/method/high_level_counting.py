@@ -15,7 +15,7 @@ class HighLevelCounting(BaseBaccaratGambler):
         if (player_count > banker_count) & (self.decision == '下閒') or (player_count < banker_count) & (self.decision == '下莊'):
             self.win_times += 1
         
-        if (player_count == banker_count) and self.play_times > 0:
+        if (player_count == banker_count) and self.play_times > 0 and self.decision != '觀察一把':
             print("和局, 這把不算")
             self.play_times -= 1
 
