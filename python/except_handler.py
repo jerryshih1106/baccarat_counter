@@ -1,7 +1,7 @@
 
 class IllegalInputError(Exception):
     def __init__(self, message):
-        self.message = f"Input should be poker number: {message}"
+        self.message = f"Input should be legal number: {message}"
 
 class MethodChooseError(Exception):
     def __init__(self, message):
@@ -13,7 +13,7 @@ def except_decorator(func):
             return func(*args, **kargs)
         except IllegalInputError as e:
             print(f"{e.__class__.__name__}: {e.message}")
-            print("維持上一把的 desicion......")
+            print("輸入錯誤, 請重新輸入 ......")
         except MethodChooseError as e:
             print(f"{e.__class__.__name__}: {e.message}")
             exit()

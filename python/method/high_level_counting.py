@@ -8,6 +8,7 @@ class HighLevelCounting(BaseBaccaratGambler):
         super().__init__()
         
     def start(self):
+        print("--- 高階算牌 ---")
         cards = self.player_hands + self.banker_hands
         player_coef, player_count = self._count_coef(self.player_hands)
         banker_coef, banker_count = self._count_coef(self.banker_hands)
@@ -23,12 +24,15 @@ class HighLevelCounting(BaseBaccaratGambler):
         for card in cards:
             res += WEIGHT[card]
 
-        if res * player_coef > res * banker_coef:
-            self.decision = '下閒'
-        elif res * player_coef < res * banker_coef:
-            self.decision = '下莊'
-        else:
+        print(f"閒家 coef: {player_coef}, 莊家 coef: {banker_coef}")
+
+
+        if res == 0 or player_coef == banker_coef:
             self.decision = '觀察一把'
+        elif player_coef > banker_coef:
+            self.decision = '下閒'
+        elif player_coef < banker_coef:
+            self.decision = '下莊'
 
     def _count_coef(self, card_list):
         ans = 0

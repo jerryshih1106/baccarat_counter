@@ -1,6 +1,7 @@
-from .method.high_level_counting import HighLevelCounting
+
+from .method import LogicalCardCounting, HighLevelCounting
 from .except_handler import MethodChooseError, except_decorator
-ALGO_DICT = {"HighLevelCounting": HighLevelCounting} 
+ALGO_DICT = {"H": HighLevelCounting, 'L': LogicalCardCounting} 
 
 class BaccaratFactory:
     def __init__(self, mode):
