@@ -5,6 +5,7 @@ if __name__ == '__main__':
     print("可選擇的算牌模式： ['H': 高階算牌, 'L': 有里數算牌] (initial = 高階算牌)")
     baccarat_processor = BaccaratFactory((input('輸入模式(ensemble 考慮開發中):')))
     baccarat_processor = baccarat_processor.process
+    print("先輸入測試牌：")
     while True:
         player_hands = list(map(str, input('輸入上把閒家牌:').split()))
         banker_hands = list(map(str, input('輸入上把莊家牌:').split()))
@@ -18,6 +19,8 @@ if __name__ == '__main__':
         print(f"第 {baccarat_processor.total_times} 把")
         print("")
         print(f"*** 建議 {baccarat_processor.decision} ***")
+        print("")
+        print(baccarat_processor.appendix_message)
         print("")
         print("")
         print(f'勝利次數: {baccarat_processor.win_times}')

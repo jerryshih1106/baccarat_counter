@@ -8,6 +8,7 @@ class BaseBaccaratGambler:
         self.play_times = 0
         self.total_times = 0
         self.decision = "第一把"
+        self.appendix_message = ""
         
     @except_decorator
     def update_hands(self, player_hands, banker_hands):
