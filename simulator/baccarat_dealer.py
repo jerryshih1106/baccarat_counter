@@ -19,7 +19,7 @@ class BaccaratDealer:
         self.shoe_num += 1
         self.shoe = BaccaratShoe(self.decks_num)
         #紅牌
-        self.flag = int(len(self.shoe.cards) * random.uniform(0.1, 0.4))
+        self.flag = int(len(self.shoe.cards) * random.uniform(0.4, 0.5))
 
 
     def _calculate_score(self, hand:list) -> int:
